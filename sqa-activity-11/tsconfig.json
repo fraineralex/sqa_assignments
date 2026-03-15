@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020"],
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": ["node", "mocha", "@wdio/globals/types", "@wdio/mocha-framework"]
+  },
+  "include": [
+    "config/**/*.ts",
+    "test/**/*.ts",
+    "utils/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -16,6 +16,9 @@ dist/
 build/
 *.egg
 
+# Node.js
+node_modules/
+
 # IDE
 .idea/
 .vscode/

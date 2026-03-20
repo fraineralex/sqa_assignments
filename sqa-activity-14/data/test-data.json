@@ -1,0 +1,46 @@
+{
+  "module": "User Service",
+  "auth": {
+    "username": "integration.tester",
+    "password": "StrongPass!123"
+  },
+  "validUsers": [
+    {
+      "firstName": "Laura",
+      "lastName": "Gomez",
+      "email": "laura.gomez@xyz.local",
+      "phone": "8095550001",
+      "status": "active"
+    },
+    {
+      "firstName": "Carlos",
+      "lastName": "Mendez",
+      "email": "carlos.mendez@xyz.local",
+      "phone": "8095550002",
+      "status": "active"
+    }
+  ],
+  "invalidUsers": [
+    {
+      "firstName": "",
+      "lastName": "SinNombre",
+      "email": "correo-invalido",
+      "phone": "123",
+      "status": "unknown"
+    },
+    {
+      "firstName": "Duplicado",
+      "lastName": "Email",
+      "email": "laura.gomez@xyz.local",
+      "phone": "8095559999",
+      "status": "active"
+    }
+  ],
+  "dependencyFailureCases": [
+    {
+      "userId": "simulate-crm-timeout",
+      "expectedStatus": 503,
+      "expectedMessage": "CRM dependency timeout"
+    }
+  ]
+}

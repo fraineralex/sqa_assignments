@@ -1,0 +1,9 @@
+{
+  "name": "sqa-activity-14",
+  "private": true,
+  "scripts": {
+    "start:api": "bun api/server.js",
+    "test:newman": "bunx newman run postman/XYZ-Integration-Tests.postman_collection.json --env-var \"baseUrl=http://localhost:8080/api\"",
+    "test:all": "powershell -ExecutionPolicy Bypass -File scripts/run-tests.ps1 -BaseUrl \"http://localhost:8080/api\""
+  }
+}

@@ -28,3 +28,10 @@ node_modules/
 # OS
 .DS_Store
 Thumbs.db
+
+# SQA activity 14 generated artifacts
+sqa-activity-14/results/
+sqa-activity-14/**/*.log
+sqa-activity-14/presentation.md
+sqa-activity-14/.env
+sqa-activity-14/.env.*

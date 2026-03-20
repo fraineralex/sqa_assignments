@@ -2,12 +2,30 @@
 
 ## Ejecucion rapida (al inicio)
 1. Levantar API local:
-bun api/server.js
+```bash
+bun run start:api
+```
 2. Ejecutar toda la validacion automatizada:
-powershell -ExecutionPolicy Bypass -File scripts/run-tests.ps1 -BaseUrl "http://localhost:8080/api"
+```bash
+bun run test:all
+```
 3. Resultado esperado:
 - Newman en verde
 - k6 integracion y carga con metricas disponibles en consola y carpeta results
+
+Comandos listos para copiar:
+- Levantar API local:
+```bash
+bun run start:api
+```
+- Ejecutar Newman:
+```bash
+bun run test:newman
+```
+- Ejecutar todo:
+```bash
+bun run test:all
+```
 
 ## 1. Introduccion
 Este repositorio presenta una estrategia completa de pruebas de integracion automatizadas para un modulo backend REST del Proyecto XYZ. El enfoque combina validacion funcional de flujos de negocio, verificacion de contratos entre servicios y pruebas de carga/integracion con k6 y Postman. El objetivo es demostrar una implementacion realista, trazable y orientada a calidad academica.
@@ -160,17 +178,22 @@ La estrategia implementada valida de forma integral la calidad de integracion de
 ## 11. Como ejecutar el proyecto
 
 Prerequisitos:
+- Bun instalado (descarga oficial: https://bun.sh)
 - k6 instalado localmente.
 - Postman Desktop o Newman.
 - Entorno backend accesible en BASE_URL.
 
 ### Ejecutar pruebas de integracion con k6
 Comando sugerido:
+```bash
 k6 run k6/integration-test.js -e BASE_URL=http://localhost:8080/api -e API_USERNAME=integration.tester -e API_PASSWORD=StrongPass!123
+```
 
 ### Ejecutar pruebas de carga con k6
 Comando sugerido:
+```bash
 k6 run k6/load-test.js -e BASE_URL=http://localhost:8080/api -e API_USERNAME=integration.tester -e API_PASSWORD=StrongPass!123 -e EXISTING_USER_ID=hot-user-001
+```
 
 ### Ejecutar la coleccion en Postman
 1. Importar postman/XYZ-Integration-Tests.postman_collection.json.
@@ -181,12 +204,16 @@ k6 run k6/load-test.js -e BASE_URL=http://localhost:8080/api -e API_USERNAME=int
 ### Ejecutar con Newman (opcional)
 [Screenshot_newman]
 Comando sugerido:
-bunx newman run postman/XYZ-Integration-Tests.postman_collection.json --env-var "baseUrl=http://localhost:8080/api"
+```bash
+bun run test:newman
+```
 
 ### Ejecucion automatizada en un solo comando
 [Screenshot_script_ejecucion]
 Si deseas correr todo y guardar evidencia para capturas:
-powershell -ExecutionPolicy Bypass -File scripts/run-tests.ps1 -BaseUrl "http://localhost:8080/api"
+```bash
+bun run test:all
+```
 El script ejecuta:
 - Newman con la coleccion completa
 - k6 integration-test.js
@@ -200,7 +227,9 @@ Archivos generados:
 ### Levantar API local sencilla con Bun
 [Screenshot_api_local]
 Si no tienes el backend real disponible, puedes usar la API local incluida en este repositorio:
-bun api/server.js
+```bash
+bun run start:api
+```
 Endpoints disponibles:
 - POST /api/auth/login
 - POST /api/users

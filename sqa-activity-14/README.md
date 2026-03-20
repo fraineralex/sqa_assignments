@@ -1,5 +1,14 @@
 # Pruebas de Integracion Automatizadas - Proyecto XYZ
 
+## Ejecucion rapida (al inicio)
+1. Levantar API local:
+bun api/server.js
+2. Ejecutar toda la validacion automatizada:
+powershell -ExecutionPolicy Bypass -File scripts/run-tests.ps1 -BaseUrl "http://localhost:8080/api"
+3. Resultado esperado:
+- Newman en verde
+- k6 integracion y carga con metricas disponibles en consola y carpeta results
+
 ## 1. Introduccion
 Este repositorio presenta una estrategia completa de pruebas de integracion automatizadas para un modulo backend REST del Proyecto XYZ. El enfoque combina validacion funcional de flujos de negocio, verificacion de contratos entre servicios y pruebas de carga/integracion con k6 y Postman. El objetivo es demostrar una implementacion realista, trazable y orientada a calidad academica.
 
@@ -177,9 +186,7 @@ bunx newman run postman/XYZ-Integration-Tests.postman_collection.json --env-var 
 ### Ejecucion automatizada en un solo comando
 [Screenshot_script_ejecucion]
 Si deseas correr todo y guardar evidencia para capturas:
-
 powershell -ExecutionPolicy Bypass -File scripts/run-tests.ps1 -BaseUrl "http://localhost:8080/api"
-
 El script ejecuta:
 - Newman con la coleccion completa
 - k6 integration-test.js
@@ -193,9 +200,7 @@ Archivos generados:
 ### Levantar API local sencilla con Bun
 [Screenshot_api_local]
 Si no tienes el backend real disponible, puedes usar la API local incluida en este repositorio:
-
 bun api/server.js
-
 Endpoints disponibles:
 - POST /api/auth/login
 - POST /api/users

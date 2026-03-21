@@ -1,7 +1,7 @@
-# Actividad 9 — Automatización de pruebas con Selenium
+# Actividad 9 - Automatización de pruebas con Selenium
 
 **Asignatura:** Aseguramiento de la Calidad del Software  
-**Práctica:** Selenium — evaluación automatizada de un sitio web público.
+**Práctica:** Actividad - Selenium - 9
 
 Este repositorio corresponde a la **Actividad 9**. El objetivo es demostrar automatización con **Selenium WebDriver**, escenarios y casos documentados, esperas implícitas y explícitas, aserciones sobre la interfaz, ejecución reproducible e **informes de resultados** (HTML y JUnit XML). La **entrega en video** la completas tú grabando la ejecución y el navegador.
 
@@ -9,7 +9,7 @@ Este repositorio corresponde a la **Actividad 9**. El objetivo es demostrar auto
 
 Automatizar pruebas contra un sitio elegido, verificar comportamientos esperados con comprobaciones explícitas y documentar el proceso para que otra persona pueda replicarlo.
 
-## Sitio bajo prueba (paso 1 — selección)
+## Sitio bajo prueba (paso 1 - selección)
 
 - **URL:** [https://fraineralex.dev/blog](https://fraineralex.dev/blog)  
 - **Tipo:** sitio público (blog).  
@@ -57,7 +57,7 @@ uv run python main.py
 
 Cada comprobación registrada en consola e informes sigue la misma idea: **condición previa → acción → dato de entrada (si aplica) → resultado esperado**. Las funciones en `main.py` agrupan estos casos.
 
-### CP-01 — Carga del blog
+### CP-01 - Carga del blog
 
 | Campo | Descripción |
 |--------|-------------|
@@ -66,7 +66,7 @@ Cada comprobación registrada en consola e informes sigue la misma idea: **condi
 | Datos | `TARGET_URL` = `https://fraineralex.dev/blog`. |
 | Resultado esperado | La URL actual contiene `fraineralex.dev/blog`. |
 
-### CP-02 — Artículos y enlaces localizables
+### CP-02 - Artículos y enlaces localizables
 
 | Campo | Descripción |
 |--------|-------------|
@@ -75,7 +75,7 @@ Cada comprobación registrada en consola e informes sigue la misma idea: **condi
 | Datos | Selectores: `article`, etiqueta `a`, etiqueta `footer`. |
 | Resultado esperado | Al menos un artículo, varios enlaces y un pie presente. |
 
-### CP-03 — Navegación desde un artículo
+### CP-03 - Navegación desde un artículo
 
 | Campo | Descripción |
 |--------|-------------|
@@ -84,7 +84,7 @@ Cada comprobación registrada en consola e informes sigue la misma idea: **condi
 | Datos | Enlaces `article a`. |
 | Resultado esperado | Al menos una navegación exitosa con título no vacío. |
 
-### CP-04 — Scroll con teclas
+### CP-04 - Scroll con teclas
 
 | Campo | Descripción |
 |--------|-------------|
@@ -93,7 +93,7 @@ Cada comprobación registrada en consola e informes sigue la misma idea: **condi
 | Datos | Teclas Fin e Inicio. |
 | Resultado esperado | Las acciones se ejecutan sin error (flujo de scroll por teclado). |
 
-### CP-05 — Esperas explícitas sobre contenido principal
+### CP-05 - Esperas explícitas sobre contenido principal
 
 | Campo | Descripción |
 |--------|-------------|
@@ -102,7 +102,7 @@ Cada comprobación registrada en consola e informes sigue la misma idea: **condi
 | Datos | Timeouts configurados en código (10–15 s según bloque). |
 | Resultado esperado | Artículos visibles en número > 0; `footer` presente. |
 
-### CP-06 — Pie de página interactivo
+### CP-06 - Pie de página interactivo
 
 | Campo | Descripción |
 |--------|-------------|
@@ -111,7 +111,7 @@ Cada comprobación registrada en consola e informes sigue la misma idea: **condi
 | Datos | Selector `.loading-section`, `footer a`. |
 | Resultado esperado | Enlaces en el pie presentes y en estado clickeable. |
 
-### CP-07 — Comprobaciones vía JavaScript
+### CP-07 - Comprobaciones vía JavaScript
 
 | Campo | Descripción |
 |--------|-------------|
@@ -120,7 +120,7 @@ Cada comprobación registrada en consola e informes sigue la misma idea: **condi
 | Datos | Scripts en `execute_script`. |
 | Resultado esperado | Título contiene `Frainer`; URL contiene `fraineralex`. |
 
-### CP-08 — Cookies y pestañas
+### CP-08 - Cookies y pestañas
 
 | Campo | Descripción |
 |--------|-------------|
@@ -202,4 +202,4 @@ Las funciones principales en `main.py` son: `setup_driver`, `test_navigate_to_si
 
 ---
 
-**Identificación del trabajo:** Actividad 9 — Selenium — automatización sobre [https://fraineralex.dev/blog](https://fraineralex.dev/blog).
+**Identificación del trabajo:** Actividad 9 - Selenium - automatización sobre [https://fraineralex.dev/blog](https://fraineralex.dev/blog).

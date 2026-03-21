@@ -82,7 +82,9 @@ k6 run --out json=results/run-load.json k6/load-test.js
 .\scripts\run-tests.ps1
 ```
 
-El script genera archivos `results/run-*.json` con marca de tiempo. Los archivos `run-*.json` están ignorados por `.gitignore` para no llenar el repositorio; conserva `sample-results.json` como referencia académica.
+El script genera archivos `results/run-*.json` con marca de tiempo. Los archivos `run-*.json` están ignorados por `.gitignore` para no llenar el repositorio con cada corrida local.
+
+En el repositorio se incluye además **`results/k6_export_load_ejemplo.json`**: salida nativa de k6 (`k6 run --out json=...`) de una corrida corta de `load-test.js` (formato JSON por línea / series temporales de métricas, según versión de k6). Cumple el requisito de la guía de **informe generado por la herramienta**. Para entregas formales puedes regenerar archivos más largos con los tres scripts y adjuntarlos junto a este ejemplo.
 
 ---
 
@@ -98,7 +100,8 @@ sqa-activity-12/
 │   ├── spike-test.js
 │   └── utils.js
 ├── results/
-│   └── sample-results.json
+│   ├── sample-results.json
+│   └── k6_export_load_ejemplo.json
 ├── scripts/
 │   └── run-tests.ps1
 ├── .gitignore
@@ -126,9 +129,13 @@ Al finalizar, k6 imprime un resumen con, entre otras:
 - **`checks`**: porcentaje de aserciones de negocio satisfechas.  
 - **`iteration_duration`**: tiempo de cada iteración del `default function`.
 
+### Archivo `results/k6_export_load_ejemplo.json`
+
+Es el **informe en JSON producido por k6** (`--out json=...`), tal como pide la práctica. Contiene el volcado de métricas y eventos de una ejecución real (corrida corta para mantener un tamaño razonable en el repositorio). Para analizarlo puedes usar herramientas que acepten NDJSON, importarlo en Grafana Cloud k6 o procesarlo con scripts propios.
+
 ### Archivo `results/sample-results.json`
 
-Contiene tres bloques `runs` (carga, pico, estrés) con números **representativos** de una campaña de medición: totales de requests, tasas, latencias, checks y el estado **pass/fail** de los `thresholds`. Sirve como plantilla para comparar contra tus propias corridas reales y como anexo de informe cuando se entrega documentación sin adjuntar JSON masivo.
+Resumen **interpretado** con tres bloques `runs` (carga, pico, estrés): números representativos de una campaña de medición, totales de requests, tasas, latencias, checks y estado **pass/fail** de los `thresholds`. Complementa el JSON crudo con una lectura lista para el informe académico.
 
 ### Gráficos
 
@@ -171,7 +178,7 @@ En el ejemplo sintético de `sample-results.json`, la corrida de **estrés** mue
 ## Entrega sugerida
 
 - Scripts en `k6/`.  
-- Evidencias: al menos un `results/run-*.json` generado localmente y/o `sample-results.json` como referencia.  
+- Informes: **`k6_export_load_ejemplo.json`** (salida nativa k6) + **`sample-results.json`** (resumen para el informe); opcionalmente añade JSON de corridas completas (`run-*.json` tras `run-tests.ps1`).  
 - Este `README.md` como documentación e informe.  
 - (Opcional) capturas del resumen final en consola o dashboard.
 

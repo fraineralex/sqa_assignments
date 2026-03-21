@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <testsuite name="sqa_activity_9_selenium" tests="23" failures="0" errors="0" skipped="0" time="37.520">
+    <testcase name="WebDriver Setup" classname="selenium.main" time="0" />
+    <testcase name="Navigate to URL" classname="selenium.main" time="0" />
+    <testcase name="CSS Selector - Find articles" classname="selenium.main" time="0" />
+    <testcase name="Tag Name - Find anchors" classname="selenium.main" time="0" />
+    <testcase name="Tag Name - Find footer" classname="selenium.main" time="0" />
+    <testcase name="Click Navigation" classname="selenium.main" time="0" />
+    <testcase name="send_keys - Scroll to bottom" classname="selenium.main" time="0" />
+    <testcase name="send_keys - Scroll to top" classname="selenium.main" time="0" />
+    <testcase name="Explicit Wait - Articles visible" classname="selenium.main" time="0" />
+    <testcase name="Explicit Wait - Footer present" classname="selenium.main" time="0" />
+    <testcase name="Dynamic - Loading section gone" classname="selenium.main" time="0" />
+    <testcase name="Dynamic - Footer links loaded" classname="selenium.main" time="0" />
+    <testcase name="Dynamic - Links clickable" classname="selenium.main" time="0" />
+    <testcase name="JS Execution - Scroll to bottom" classname="selenium.main" time="0" />
+    <testcase name="JS Execution - Scroll to top" classname="selenium.main" time="0" />
+    <testcase name="JS Execution - Get title" classname="selenium.main" time="0" />
+    <testcase name="JS Execution - Get URL" classname="selenium.main" time="0" />
+    <testcase name="Cookies - Read cookies" classname="selenium.main" time="0" />
+    <testcase name="Tabs - Open new tab" classname="selenium.main" time="0" />
+    <testcase name="Tabs - Navigate in new tab" classname="selenium.main" time="0" />
+    <testcase name="Tabs - Switch back" classname="selenium.main" time="0" />
+    <testcase name="Tabs - Close tab" classname="selenium.main" time="0" />
+    <testcase name="Browser Cleanup" classname="selenium.main" time="0" />
+  </testsuite>
+</testsuites>

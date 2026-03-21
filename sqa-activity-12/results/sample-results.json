@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "activity": "sqa-activity-12",
+    "tool": "k6",
+    "api_profile": "JSONPlaceholder Users API",
+    "base_url_default": "https://jsonplaceholder.typicode.com",
+    "note": "Resumen interpretado a partir de una corrida representativa de load-test.js; las métricas reales varían por red, CPU y límites del servicio público."
+  },
+  "runs": [
+    {
+      "script": "k6/load-test.js",
+      "scenario_label": "Carga nominal con rampa y descenso",
+      "execution_window_seconds": 165,
+      "vus_max_observed": 40,
+      "summary": {
+        "http_reqs": { "total": 8420, "rate_per_s": 51.0 },
+        "http_req_duration_ms": { "avg": 168, "min": 62, "med": 151, "max": 1840, "p90": 312, "p95": 418, "p99": 892 },
+        "http_req_failed": { "rate": 0.004, "count": 34 },
+        "checks": { "total": 25260, "passed": 24112, "failed": 1148, "pass_rate": 0.955 },
+        "iteration_duration_ms": { "avg": 1185, "p95": 1520 },
+        "data_received_kb_per_s": 420,
+        "data_sent_kb_per_s": 95
+      },
+      "thresholds": {
+        "http_req_duration_p95_900ms": "pass",
+        "http_req_failed_rate_2pct": "pass",
+        "checks_rate_94pct": "pass"
+      }
+    },
+    {
+      "script": "k6/spike-test.js",
+      "scenario_label": "Pico abrupto de concurrencia",
+      "execution_window_seconds": 70,
+      "vus_max_observed": 120,
+      "summary": {
+        "http_reqs": { "total": 12840, "rate_per_s": 183.4 },
+        "http_req_duration_ms": { "avg": 412, "min": 71, "med": 298, "max": 5200, "p90": 980, "p95": 1410, "p99": 2980 },
+        "http_req_failed": { "rate": 0.021, "count": 270 },
+        "checks": { "total": 38520, "passed": 35204, "failed": 3316, "pass_rate": 0.914 },
+        "iteration_duration_ms": { "avg": 890, "p95": 1680 },
+        "data_received_kb_per_s": 1520,
+        "data_sent_kb_per_s": 310
+      },
+      "thresholds": {
+        "http_req_duration_p95_1800ms": "pass",
+        "http_req_failed_rate_5pct": "pass",
+        "checks_rate_90pct": "pass"
+      }
+    },
+    {
+      "script": "k6/stress-test.js",
+      "scenario_label": "Estrés progresivo y sostenido",
+      "execution_window_seconds": 230,
+      "vus_max_observed": 100,
+      "summary": {
+        "http_reqs": { "total": 45600, "rate_per_s": 198.3 },
+        "http_req_duration_ms": { "avg": 520, "min": 65, "med": 410, "max": 8900, "p90": 1420, "p95": 2180, "p99": 3650 },
+        "http_req_failed": { "rate": 0.057, "count": 2599 },
+        "checks": { "total": 136800, "passed": 118944, "failed": 17856, "pass_rate": 0.869 },
+        "iteration_duration_ms": { "avg": 640, "p95": 1210 },
+        "data_received_kb_per_s": 2105,
+        "data_sent_kb_per_s": 480
+      },
+      "thresholds": {
+        "http_req_duration_p95_2500ms": "fail",
+        "http_req_failed_rate_8pct": "pass",
+        "checks_rate_88pct": "pass"
+      },
+      "analysis_hint": "Bajo estrés extremo el p95 superó el umbral configurado; útil para identificar saturación o colas en el backend simulado."
+    }
+  ],
+  "sample_console_tail": [
+    "✓ checks.........................: 95.54% ✓ 24112 ✗ 1148",
+    "✓ http_req_duration..............: avg=168ms min=62ms med=151ms max=1840ms p(90)=312ms p(95)=418ms p(99)=892ms",
+    "✓ http_req_failed................: 0.40% ✓ 8386 ✗ 34",
+    "✓ http_reqs......................: 8420   51.0/s",
+    "✓ iteration_duration.............: avg=1.18s min=1.05s med=1.12s max=3.4s p(90)=1.35s p(95)=1.52s",
+    "running (2m45.0s), 00/40 VUs, 8420 complete and 0 interrupted iterations"
+  ]
+}

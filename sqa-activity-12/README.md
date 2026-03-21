@@ -1,4 +1,4 @@
-# Pruebas de carga con k6 — Actividad 12
+# Pruebas de carga con k6 - Actividad 12
 
 **Asignatura:** Aseguramiento de la Calidad del Software  
 **Práctica:** Automatización de pruebas de carga y rendimiento con **k6** sobre una API REST pública utilizada como sistema objetivo (perfil similar a producción para fines académicos).
@@ -123,7 +123,7 @@ Cada script usa `sleep()` para modelar tiempo de pensamiento del usuario entre i
 
 Al finalizar, k6 imprime un resumen con, entre otras:
 
-- **`http_reqs`**: total de solicitudes y **tasa (req/s)** — throughput observado.  
+- **`http_reqs`**: total de solicitudes y **tasa (req/s)** - throughput observado.  
 - **`http_req_duration`**: estadísticos de latencia (**avg**, **p90**, **p95**, **p99**).  
 - **`http_req_failed`**: proporción de respuestas HTTP no exitosas según criterio de k6.  
 - **`checks`**: porcentaje de aserciones de negocio satisfechas.  
@@ -184,4 +184,4 @@ En el ejemplo sintético de `sample-results.json`, la corrida de **estrés** mue
 
 ---
 
-**Identificación:** Actividad 12 — Automatización de pruebas de carga y rendimiento con k6.
+**Identificación:** Actividad 12 - Automatización de pruebas de carga y rendimiento con k6.

@@ -1,0 +1,21 @@
+{
+  "name": "sqa-ecommerce-testing-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "server": "bun run scripts/mock-ecommerce-server.ts",
+    "test:k6": "k6 run tests/k6/purchase-load-test.ts",
+    "test:selenium": "bun run tests/selenium/ecommerce-flow.test.ts",
+    "test:appium": "bun run tests/appium/mobile-app.test.ts"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.27.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.11",
+    "@types/k6": "^0.54.2",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  }
+}
